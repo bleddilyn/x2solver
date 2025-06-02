@@ -1,0 +1,116 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="configuracoes.css">
+    <link rel="icon" href="iconmatematica.png">
+    <title>Guia de Funções do 2º Grau</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <h1 class="title">Configurações</h1>
+            <img class="icone" src="iconmatematica.png" alt="Icone Matematica">
+        </div>
+    </header>
+
+    <div class="main-container">
+        <h1>Configurações de Conta</h1>
+        
+        <div class="settings-container">
+            <div class="profile-section">
+                <div class="profile-pic-large">
+                    <img src="perfilsemfoto.png" alt="Foto de perfil" id="profile-image-large">
+                    <div class="upload-overlay" onclick="document.getElementById('profile-upload').click()">
+                        <button><span>Alterar</span></button>
+                    </div>
+                </div>
+                <input type="file" id="profile-upload" accept="image/*" style="display: none;" onchange="previewImage(this)">
+            </div>
+            
+            <div class="settings-form">
+                <div class="form-group">
+                    <label for="first-name">Nome</label>
+                    <input type="text" id="first-name" placeholder="Seu nome">
+                </div>
+                
+                <div class="form-group">
+                    <label for="last-name">Sobrenome</label>
+                    <input type="text" id="last-name" placeholder="Seu sobrenome">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="seu.email@exemplo.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="current-password">Senha atual</label>
+                    <div class="password-input">
+                        <input type="password" id="current-password" placeholder="Sua senha atual">
+                        <span class="toggle-password" onclick="togglePasswordVisibility('current-password')"></span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="new-password">Nova senha</label>
+                    <div class="password-input">
+                        <input type="password" id="new-password" placeholder="Nova senha">
+                        <span class="toggle-password" onclick="togglePasswordVisibility('new-password')"></span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm-password">Confirmar nova senha</label>
+                    <div class="password-input">
+                        <input type="password" id="confirm-password" placeholder="Confirme a nova senha">
+                        <span class="toggle-password" onclick="togglePasswordVisibility('confirm-password')"></span>
+                    </div>
+                </div>
+                
+                <div class="password-strength" id="password-strength">
+                    <div class="strength-bar">
+                        <div class="strength-fill" id="strength-fill"></div>
+                    </div>
+                    <span class="strength-text" id="strength-text">Força da senha</span>
+                </div>
+                
+                <div class="form-actions">
+                    <button class="action-button-save-button" onclick="saveSettings()">Salvar alterações</button>
+                    <button class="action-button-cancel-button" onclick="showMainMenu()">Cancelar</button>
+                    <div class="logout-container">
+                        <button class="logout-button" onclick="logout()">Deslogar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="notification" class="notification">
+            <span id="notification-message"></span>
+        </div>
+    </div>
+
+    
+    <a href="home.htmll" class="back-button" onclick="showMainMenu()">Voltar ao menu</a>
+    
+    <script src="config.js"></script>
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+        
+
+        function logout() {
+            localStorage.removeItem('usuarioLogado');  
+            alert('Você foi deslogado com sucesso!');
+            window.location.href = 'index.html';  
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calcular.css">
+    <link rel="icon" href="iconmatematica.png">
+    <title>Calcule sua parábola</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="iconmatematica.png" alt="">
+            <img class="profile-image" src="perfilsemfoto.png" alt="Foto de perfil">
+            <h1 class="title">Calcule sua parábola</h1>
+        </div>
+        
+        <div class="content">
+            <div class="input-section">
+                <div class="input-group">
+                    <label class="input-label">Digite o valor de a:</label>
+                    <input type="text" class="input-field" id="valor-a">
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">Digite o valor de b:</label>
+                    <input type="text" class="input-field" id="valor-b">
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">Digite o valor de c:</label>
+                    <input type="text" class="input-field" id="valor-c">
+                </div>
+                
+                <button class="calc-button">Calcular</button>
+            </div>
+            <div class="graph">
+                <div class="graph-grid">
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                </div>
+                <div class="graph-lines"></div>
+
+                <svg class="parabola" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0,80 Q50,0 100,80" stroke="white" stroke-width="2.5" fill="none" />
+                </svg>
+                
+                <div class="axis-labels">
+                    <div class="equation">y = x²−1</div>
+                    <div class="x-label">x</div>
+                    <div class="y-label">y</div>
+                    <div class="x-values">
+                        <span>-2</span>
+                        <span>-1</span>
+                        <span>0</span>
+                        <span>1</span>
+                        <span>2</span>
+                    </div>
+                    <div class="y-values">
+                        <span>3</span>
+                        <span>2</span>
+                        <span>1</span>
+                        <span>0</span>
+                        <span>-1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="resultados"></div>
+        <canvas id="graficoParabola" width="400" height="300"></canvas>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    </div>  
+    <a href="home.html" class="back-button" onclick="showMainMenu()">Voltar ao menu</a>
+    
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <script src="config.js"></script>
+
+    <script>
+        document.querySelector(".calc-button").addEventListener("click", function () {
+            const a = parseFloat(document.getElementById("valor-a").value);
+            const b = parseFloat(document.getElementById("valor-b").value);
+            const c = parseFloat(document.getElementById("valor-c").value);
+    
+            const resultadoDiv = document.getElementById("resultados");
+            if (isNaN(a) || a === 0 || isNaN(b) || isNaN(c)) {
+                resultadoDiv.innerHTML = `<p style="color:red;"><strong>Erro:</strong> Insira valores válidos. O coeficiente 'a' deve ser diferente de zero.</p>`;
+                return;
+            }
+            const delta = b * b - 4 * a * c;
+            const x1 = delta >= 0 ? (-b + Math.sqrt(delta)) / (2 * a) : null;
+            const x2 = delta >= 0 ? (-b - Math.sqrt(delta)) / (2 * a) : null;
+            const xv = -b / (2 * a);
+            const yv = a * xv * xv + b * xv + c;
+
+            resultadoDiv.innerHTML = `
+                <p><strong>Vértice:</strong> (${xv.toFixed(2)}, ${yv.toFixed(2)})</p>
+                ${delta >= 0
+                    ? `<p><strong>Raízes:</strong> x₁ = ${x1.toFixed(2)}, x₂ = ${x2.toFixed(2)}</p>`
+                    : `<p><strong>Raízes:</strong> Não reais (Δ = ${delta.toFixed(2)})</p>`
+                }
+            `;
+
+            const xValores = [];
+            const yValores = [];
+            for (let x = xv - 10; x <= xv + 10; x += 0.5) {
+                xValores.push(x);
+                yValores.push(a * x * x + b * x + c);
+            }
+    
+            const yMin = Math.min(...yValores);
+            const yMax = Math.max(...yValores);
+    
+            const ctx = document.getElementById('graficoParabola').getContext('2d');
+    
+            if (window.graficoParabola instanceof Chart) {
+                window.graficoParabola.destroy();
+            }
+    
+            window.graficoParabola = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: xValores,
+                    datasets: [{
+                        label: 'Parábola',
+                        data: yValores,
+                        borderColor: '#7B68EE',
+                        backgroundColor: 'rgba(123, 104, 238, 0.2)',
+                        fill: true,
+                        tension: 0.2,
+                        pointBackgroundColor: '#4B0082',
+                        pointRadius: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#333'
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'x',
+                                color: '#333'
+                            },
+                            grid: {
+                                color: '#ccc'
+                            },
+                            ticks: {
+                                color: '#444',
+                                stepSize: 2
+                            },
+                            min: xv - 10,
+                            max: xv + 10
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'y',
+                                color: '#333'
+                            },
+                            grid: {
+                                color: '#ccc'
+                            },
+                            ticks: {
+                                color: '#444',
+                                stepSize: Math.ceil((yMax - yMin) / 10)
+                            },
+                            min: yMin - 5,
+                            max: yMax + 5
+                        }
+                    }
+                }
+            });
+        });
+    </script>  
+</html>

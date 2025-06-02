@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tutorial.css">
+    <link rel="icon" href="iconmatematica.png">
+    <title>Guia de Funções do 2º Grau</title>
+</head>
+<body>
+    <div class="header">
+        <img class="icone" src="iconmatematica.png" alt="Icone Matematica">
+        <img class="profile-image" src="perfilsemfoto.png" alt="Foto de perfil">
+        <div class="title">Como calcular as parábolas?</div>
+    </div>
+    <div class="main-container">
+        <ol>
+            <li>
+                <strong>Entenda a equação</strong>
+                <p>A equação de uma parábola (função do 2º grau) tem a forma:</p>
+                <div class="formula">
+                    <p>f(x) = ax² + bx + c</p>
+                </div>
+                <p>Onde:</p>
+                <ul>
+                    <li><strong>a</strong> determina a concavidade (para cima se a > 0, para baixo se a < 0)</li>
+                    <li><strong>b</strong> e <strong>c</strong> influenciam o deslocamento da parábola</li>
+                </ul>
+            </li>
+            
+            <li>
+                <strong>Calcule o discriminante (Δ)</strong>
+                <div class="formula">
+                    <p>Δ = b² - 4ac</p>
+                </div>
+                <p>O valor de Δ te diz quantas raízes a parábola tem:</p>
+                <ul>
+                    <li>Δ > 0 → <strong>2 raízes reais diferentes</strong></li>
+                    <li>Δ = 0 → <strong>1 raiz real (vértice toca o eixo x)</strong></li>
+                    <li>Δ < 0 → <strong>nenhuma raiz real</strong></li>
+                </ul>
+            </li>
+            
+            <li>
+                <strong>Aplique a fórmula de Bhaskara</strong>
+                <div class="formula">
+                    <p>\( x = \frac{-b \pm \sqrt{\Delta}}{2a} \)</p>
+                </div>
+                <p>Com isso, você encontra os <strong>pontos onde a parábola cruza o eixo x</strong> (se Δ ≥ 0).</p>
+            </li>
+            
+            <li>
+                <strong>Encontre o vértice da parábola</strong>
+                <div class="formula">
+                    <p>\( x_v = \frac{-b}{2a} \)</p>
+                    <p>yv = f(xv)</p>
+                </div>
+                <p>O ponto (xv, yv) é o <strong>vértice</strong>, ou seja, o ponto máximo ou mínimo da parábola.</p>
+            </li>
+            
+            <li>
+                <strong>Conclua a análise</strong>
+                <p>Com as raízes e o vértice, você já consegue:</p>
+                <ul>
+                    <li>Saber se a parábola abre para cima ou para baixo</li>
+                    <li>Desenhar o gráfico corretamente</li>
+                    <li>Resolver problemas de contexto (como altura de um objeto, área máxima, etc)</li>
+                </ul>
+            </li>
+        </ol>
+        <a href="home.html" class="back-button" onclick="showMainMenu()">Voltar ao menu</a>
+    </div>
+</div>
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <script src="config.js"></script>
+    <script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</body>
+</html>

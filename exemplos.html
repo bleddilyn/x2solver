@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="exemplo.css">
+    <link rel="icon" href="iconmatematica.png">
+    <title>Exemplos</title>
+</head>
+<body>
+    <div class="header">
+        <img class="icone" src="iconmatematica.png" alt="Icone Matematica">
+        <img class="profile-image" src="perfilsemfoto.png" alt="Foto de perfil">
+        <div class="title">Exemplos</div>
+    </div>
+    
+    <div class="example-container">
+        <div class="example-card">
+            <div class="example-header">
+                <div class="example-title">Exemplo 1 – Raízes reais diferentes</div>
+            </div>
+            <div class="example-content">
+                <div class="example-text">
+                    <div class="equation">f(x) = x² - 5x + 6</div>
+                    <ul class="steps">
+                        <li><strong>Identificando os coeficientes:</strong> a = 1, b = -5, c = 6</li>
+                        <li><strong>Calculando o discriminante (Δ):</strong><br>
+                            Δ = b² - 4ac<br>
+                            Δ = (-5)² - 4(1)(6)<br>
+                            Δ = 25 - 24<br>
+                            Δ = 1
+                        </li>
+                        <li><strong>Fórmula de Bhaskara:</strong><br>
+                            x = (-b ± √Δ) / 2a<br>
+                            x = (5 ± √1) / 2<br>
+                            x = (5 ± 1) / 2
+                        </li>
+                        <li><strong>Raízes:</strong><br>
+                            x₁ = (5 + 1) / 2 = 6/2 = 3<br>
+                            x₂ = (5 - 1) / 2 = 4/2 = 2
+                        </li>
+                    </ul>
+                    <div class="result">
+                        As raízes dessa equação são x = 2 e x = 3, ou seja, a parábola cruza o eixo x nesses dois pontos.
+                    </div>
+                </div>
+                <img class="grafico" src="ex1.png" alt="">
+            </div>
+        </div>
+        
+        <div class="example-card">
+            <div class="example-header">
+                <div class="example-title">Exemplo 2 – Raízes reais iguais (Δ = 0)</div>
+            </div>
+            <div class="example-content">
+                <div class="example-text">
+                    <div class="equation">f(x) = x² - 4x + 4</div>
+                    <ul class="steps">
+                        <li><strong>Identificando os coeficientes:</strong> a = 1, b = -4, c = 4</li>
+                        <li><strong>Calculando o discriminante (Δ):</strong><br>
+                            Δ = b² - 4ac<br>
+                            Δ = (-4)² - 4(1)(4)<br>
+                            Δ = 16 - 16<br>
+                            Δ = 0
+                        </li>
+                        <li><strong>Quando Δ = 0, temos uma raiz real de multiplicidade 2:</strong><br>
+                            x = -b / 2a<br>
+                            x = 4 / 2<br>
+                            x = 2
+                        </li>
+                    </ul>
+                    <div class="result">
+                        A parábola toca o eixo x em apenas um ponto (x = 2), que é também o vértice da parábola. Quando Δ = 0, a parábola "beija" o eixo x.
+                    </div>
+                </div>
+                <img class="grafico" src="ex2.png" alt="">
+            </div>
+        </div>
+
+        <div class="example-card">
+            <div class="example-header">
+                <div class="example-title">Exemplo 3 – Foco no vértice</div>
+            </div>
+            <div class="example-content">
+                <div class="example-text">
+                    <div class="equation">f(x) = -2x² + 8x - 5</div>
+                    <ul class="steps">
+                        <li><strong>Identificando os coeficientes:</strong> a = -2, b = 8, c = -5</li>
+                        <li><strong>Calculando as coordenadas do vértice:</strong><br>
+                            x<sub>v</sub> = -b/2a = -8/(-4) = 2<br>
+                            y<sub>v</sub> = f(2) = -2(2)² + 8(2) - 5<br>
+                            y<sub>v</sub> = -2(4) + 16 - 5<br>
+                            y<sub>v</sub> = -8 + 16 - 5<br>
+                            y<sub>v</sub> = 3
+                        </li>
+                        <li><strong>Como a < 0 (a = -2), a parábola tem concavidade para baixo</strong><br>
+                            Isso significa que o vértice é um ponto de máximo.
+                        </li>
+                    </ul>
+                    <div class="result">
+                        O vértice da parábola está em (2, 3), sendo este o ponto de valor máximo da função. Como a parábola possui concavidade voltada para baixo, ela atinge seu valor máximo neste ponto.
+                    </div>
+                </div>
+                <img class="grafico" src="ex3.png" alt="">
+            </div>
+        </div>
+        
+        <div class="example-card">
+            <div class="example-header">
+                <div class="example-title">Exemplo 4 – Aplicação no cotidiano</div>
+            </div>
+            <div class="example-content">
+                <div class="example-text">
+                    <div class="equation">h(t) = -5t² + 20t</div>
+                    <p><strong>Problema:</strong> Um objeto é lançado para cima com velocidade inicial. Sua altura em função do tempo é dada por h(t) = -5t² + 20t.</p>
+                    <ul class="steps">
+                        <li><strong>Identificando os coeficientes:</strong> a = -5, b = 20, c = 0</li>
+                        <li><strong>Para encontrar a altura máxima, calculamos o vértice:</strong><br>
+                            t<sub>v</sub> = -b/2a = -20/(-10) = 2 segundos<br>
+                            h<sub>max</sub> = h(2) = -5(2)² + 20(2)<br>
+                            h<sub>max</sub> = -5(4) + 40<br>
+                            h<sub>max</sub> = -20 + 40<br>
+                            h<sub>max</sub> = 20 metros
+                        </li>
+                        <li><strong>Para saber quando o objeto toca o chão, encontramos as raízes:</strong><br>
+                            h(t) = 0<br>
+                            -5t² + 20t = 0<br>
+                            t(-5t + 20) = 0<br>
+                            t = 0 ou t = 4
+                        </li>
+                    </ul>
+                    <div class="result">
+                        O objeto atinge altura máxima de 20 metros após 2 segundos do lançamento. O tempo total até tocar o chão é de 4 segundos.
+                    </div>
+                </div>
+                <img class="grafico" src="ex4.png" alt="">
+            </div>
+            <a href="home.html" class="back-button" onclick="showMainMenu()">Voltar ao menu</a>
+        </div>
+    </div>
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+          <div class="vw-plugin-top-wrapper"></div>
+        </div>
+      </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+      </script>
+
+    <script src="config.js"></script> 
+</body>
+</html>
